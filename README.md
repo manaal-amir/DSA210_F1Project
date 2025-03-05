@@ -9,13 +9,13 @@ Spring 2024-25
 
 ............
 
-🏎️ Project Overviewnn
+🏎️ Project Overview  
 This project explores whether Formula 1 race ratings are influenced more by the winning driver, the winning constructor, the track location, or the seasonal placement.<br>
 By analyzing historical race data (1950-2024), we aim to understand what makes a race more exciting for fans.
 
 .............
 
-🏎️ Research Questions
+🏎️ Research Questions  
 Do race winners impact fan ratings? (Do popular or dominant drivers affect engagement?)<br>
 Do constructors influence ratings? (Are fans more engaged when underdog teams win?)<br>
 Does track location matter? (Are historic venues like Monaco or Silverstone more exciting?)<br>
