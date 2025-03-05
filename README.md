@@ -9,7 +9,7 @@ Spring 2024-25
 
 ............
 
-🏎️ Overview
+🏎️ Project Overviewnn
 This project explores whether Formula 1 race ratings are influenced more by the winning driver, the winning constructor, the track location, or the seasonal placement.<br>
 By analyzing historical race data (1950-2024), we aim to understand what makes a race more exciting for fans.
 
