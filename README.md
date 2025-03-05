@@ -31,7 +31,7 @@ Does seasonal placement affect ratings? (Do early-, mid-, or late-season races r
 | `races.csv`              | Contains track locations & race dates | Extract track & month info    |
 | `fan_ratings.csv`        | Fan ratings for each race           | The dependent variable        |
 
-Fan Ratings Data: https://www.kaggle.com/datasets/codingminds/formula-1-race-fan-ratings/data <br>
+Fan Ratings Data: compiled from racefans.net <br>
 Track Characteristics, Constructor and Driver Popularity: https://www.kaggle.com/datasets/melissamonfared/formula-1?select=circuits.csv <br>
   
 .............
