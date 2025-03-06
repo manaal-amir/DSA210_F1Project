@@ -1,7 +1,7 @@
 ### DSA210_F1Project  
-Syeda Manaal Amir  
-33550   
-Spring 2024-25  
+#### Syeda Manaal Amir  
+#### 33550   
+#### Spring 2024-25  
 
 __________________________________________________________________________________________________________________________________________________________________________________
 # Formula 1 Fan Ratings Analysis 
@@ -125,7 +125,7 @@ To analyze and visualize the data effectively, I will utilize the following tool
 __________________________________________________________________________________________________________________________________________________________________________________  
 
 ## 🏎️ Expected Outcomes  
-By the end of this project, we aim to answer:<br>
+By the end of this project, the aim is to answer:<br>
 
 Do fans care more about the driver or the team winning?<br>
 Are certain tracks or seasonal placements more exciting?<br>
