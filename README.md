@@ -36,7 +36,7 @@ ________________________________________________________________________________
 I have always been fascinated by **Formula 1**, not just as a sport but also as a cultural phenomenon.<br>  
 Recently, I noticed a recurring debate online:  
 
-> *"Do people—especially girls—watch F1 because of the drivers, or because of the sport itself?"*  
+> *"Do people, especially girls, watch F1 because of the drivers, or because of the sport itself?"*  
 
 Some argue that **drivers have celebrity status**, influencing fan engagement more than the actual racing.<br>  
 Others claim that **team performance and race excitement matter more** than individual personalities.<br>  
