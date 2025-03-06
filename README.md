@@ -57,18 +57,19 @@ ________________________________________________________________________________
 The following table contains the datasets I will be exploiting along wiht thier description and usage.  
 | Dataset                   | Description                          | Usage                          |
 |---------------------------|--------------------------------------|--------------------------------|
-| `results.csv`             | Finishing positions of drivers      | Identify the winning driver   |
-| `constructor_standings.csv` | Constructor rankings each season  | Find the winning constructor  |
-| `races.csv`              | Contains track locations & race dates | Extract track & month info    |
-| `fan_ratings.csv`        | Fan ratings for each race           | The dependent variable        |
+| `results.xlsx`             | Finishing positions of drivers      | Identify the winning driver   |
+| `constructor_standings.xlsx` | Constructor rankings each season  | Find the winning constructor  |
+| `races.xlsx`              | Contains track locations & race dates | Extract track & month info    |
+| `fan_ratings.xlsx`        | Fan ratings for each race           | The dependent variable        |
 
 ### The variables being analyzed are:
-- The fan ratings; compiled from previously released records on racefans.net  
+- The fan ratings, Winning Drivers; compiled from previously released records on racefans.net  
 - Track name  
-- Seasonal Placement of Race  
-- Winning drivers  
+- Seasonal Placement of Race    
 - Winning constructor;  
-  - previously mentioned data (except ratings) all taken from a publicly avaiable dataset on kaggle: https://www.kaggle.com/datasets/melissamonfared/formula-1?select=circuits.csv <br>
+  - previously mentioned data (except ratings, and winning drivers) all taken from a publicly avaiable dataset on kaggle: https://www.kaggle.com/datasets/melissamonfared/formula-1?select=circuits.csv <br>
+  
+The Excel file (.xlsx) containing fan ratings and winning drivers will serve as the primary dataset. It will be enriched by merging additional .xlsx files, incorporating relevant independent variables from the remaining datasets to create a comprehensive dataset for analysis.
 
 __________________________________________________________________________________________________________________________________________________________________________________  
 
