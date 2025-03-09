@@ -118,7 +118,7 @@ ________________________________________________________________________________
 
 To analyze and visualize the data effectively, I will utilize the following tools:  
 
-- **Python** → The core programming language for handling datasets, performing statistical analysis, and running models.  
+- **Python** → The core programming language for handling datasets, performing statistical analysis, and running models, either through Google Colab or Visual Studio Code.  
 - **Pandas** → Essential for **data preprocessing, filtering, and transformation** to prepare insights.  
 - **Matplotlib & Seaborn** → Used for generating **graphs, heatmaps, and trend visualizations** to better understand the relationship between variables.  
 
