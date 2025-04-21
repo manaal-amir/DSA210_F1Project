@@ -14,7 +14,7 @@ Hypothesis
 Dataset Analysis Plan  
 Tools and Technologies   
 Expected Outcomes  
-Procedure to deduce Findings 
+Procedure to deduce Findings   
 Analysis of Findings  
 __________________________________________________________________________________________________________________________________________________________________________________  
 
