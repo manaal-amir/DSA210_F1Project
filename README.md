@@ -5,7 +5,18 @@
 
 __________________________________________________________________________________________________________________________________________________________________________________
 # Formula 1 Fan Ratings Analysis 
-
+### Content  
+Project Overview  
+Research Questions and Objectives  
+Motivation  
+Datasets & Data Collection   
+Hypothesis  
+Dataset Analysis Plan  
+Tools and Technologies   
+Expected Outcomes  
+Procedure to deduce Findings 
+Analysis of Findings  
+__________________________________________________________________________________________________________________________________________________________________________________  
 
 ## 🏎️ Project Overview 
 
@@ -129,4 +140,48 @@ By the end of this project, the aim is to answer:<br>
 
 Do fans care more about the driver or the team winning?<br>
 Are certain tracks or seasonal placements more exciting?<br>
-Can we predict fan ratings based on race data?<br>
+Can we predict fan ratings based on race data?<br>  
+
+__________________________________________________________________________________________________________________________________________________________________________________  
+
+## 🏎️ Procedure to deduce Findings   
+The analysis pipeline executed the following steps:
+
+1. **Data Preparation**
+   - Four key datasets (race ratings, constructor standings, race details, constructor info) were loaded from Excel files
+   - Column names were standardized and winning constructors (position=1) were identified
+   - Datasets were merged to connect fan ratings with race winners
+   - Results were sorted chronologically by season and race number
+
+2. **Data Quality Assurance**
+   - Missing value checks were performed
+   - Merge success was verified by examining matched records
+   - Column structures and data samples were inspected
+
+3. **Exploratory Analysis**
+   - Rating distributions were visualized via histograms with density curves
+   - Central tendency metrics (mean, median, mode) were computed
+   - Group averages were compared across:
+     - Constructors (winning teams)
+     - Race locations (circuits)
+     - Seasonal years
+
+4. **Statistical Testing**
+   - Pearson correlation assessed seasonal timing effects (race number vs ratings)
+   - One-way ANOVAs evaluated:
+     - Constructor-based rating differences
+     - Driver-based rating differences  
+     - Track-based rating differences
+   - Results included F-statistics, p-values, and significance flags (p<0.05)
+
+5. **Visualization**
+   - Multiple plot types (histograms, bar charts, scatter plots) were generated
+   - Visualizations highlighted relationships between ratings and:
+     - Temporal factors (season progress, year)
+     - Performance factors (winning teams/drivers)
+     - Geographical factors (race locations)
+
+The pipeline transformed raw Formula 1 data into an analysis-ready format and systematically investigated potential drivers of fan ratings through both statistical testing and visual exploration.  
+__________________________________________________________________________________________________________________________________________________________________________________  
+
+## 🏎️ Analysis of Findings  
