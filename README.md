@@ -16,6 +16,7 @@ Tools and Technologies
 Expected Outcomes  
 Procedure to deduce Findings   
 Analysis of Findings  
+Hypothesis Tests Results   
 __________________________________________________________________________________________________________________________________________________________________________________  
 
 ## 🏎️ Project Overview 
