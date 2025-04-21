@@ -94,34 +94,10 @@ ________________________________________________________________________________
 __________________________________________________________________________________________________________________________________________________________________________________  
 
 ## 🏎️ Dataset Analysis Plan 
-### Data Collection  
-
-- Import race data from multiple CSV files into a **Pandas DataFrame** for structured analysis.  
-- Preprocess the dataset by **handling missing values, standardizing formats**, and merging relevant tables (e.g., results, driver standings, constructor rankings).  
- 
-
-### Visualization  
-
-To explore relationships between variables, I will use:  
-
-- **Scatter Plots** → Example: Winning **driver vs. fan ratings** to see if certain drivers generate higher engagement.  
-- **Bar Charts** → Compare **race ratings** based on **winning constructor, track location, and seasonal placement**.  
-- **Line Graphs** → Analyze **fan rating trends** across different seasons, identifying patterns over time.  
-
-
-### Hypothesis Testing  
-
-- **H₀ (Null Hypothesis):** The **race winner, constructor, track location, and seasonal placement** have **no significant impact** on fan ratings.  
-- **H₁ (Alternative Hypothesis):** One or more of these factors **significantly influence** how fans rate a race.  
-
-To test this, I will use suitable methods from the course, tentative to selection changes.  
- 
-
-### Trend Analysis  
-
-- Identify patterns in **fan engagement over time**, determining whether certain seasons or rule changes influence ratings.  
-- Investigate whether **track type (street circuit vs. traditional), race length, or pit stop strategies** impact fan excitement.  
-- Analyze whether **races later in the season** (e.g., title deciders) receive higher ratings than early-season races.  
+- Data Collection
+- Visualization
+- Hypothesis Testing
+- Trend Analysis  
 
 __________________________________________________________________________________________________________________________________________________________________________________  
 
