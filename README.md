@@ -375,7 +375,7 @@ Weak trend suggests later races may have slightly lower ratings
 Effect is too small to be practically meaningful  
 Other factors likely dominate rating differences  
 
-### Statistical Test Results for Fan Ratings
+### Statistical Test Results for Fan Ratings using MANOVA
 
 | **Factor**              | **Test Type** | **Statistic** | **p-value** | **Significance**          |
 |-------------------------|---------------|---------------|-------------|----------------------------|
@@ -400,3 +400,25 @@ Other factors likely dominate rating differences
 
 ### Final Conclusion
 The analysis **rejects the null hypothesis**. While winning constructor has no significant effect on fan ratings, both the **winning driver** and **track location** show statistically significant impacts. This suggests that **who wins** and **where the race takes place** can meaningfully influence how fans rate a race.
+
+### Some other tests were conducted on various other hypotheses:
+
+#### Hypothesis 1: ANOVA Test – Ratings by Winning Constructor  
+H₀: The average race ratings are the same across different constructors.  
+H₁: At least one constructor has a different average race rating.  
+The ANOVA test shows that there is no statistically significant difference in average fan ratings across the six winning constructors (F = 1.280, p = 0.2739). This suggests that which constructor wins a race does not meaningfully impact how fans rate the event.  
+
+#### Hypothesis 2: t-Test – Mercedes vs. Red Bull  
+H₀: The average race ratings for races won by Mercedes and Red Bull are the same.  
+H₁: The average ratings are different.  
+![image](https://github.com/user-attachments/assets/e1b0eebb-68f2-45b6-949e-d96ba852ba07)  
+The t-test comparing fan ratings for races won by Mercedes vs. Red Bull shows no statistically significant difference (t = -1.629, p = 0.1055). This indicates that fan ratings are not meaningfully different between races won by these two dominant teams.  
+
+#### Hypothesis 3: t-Test – Ratings for Azerbaijan vs. Turkish Grand Prix  
+H₀: Azerbaijan and Turkey have the same average race rating.  
+H₁: Their ratings differ.  
+![image](https://github.com/user-attachments/assets/642c32ed-e09b-48f1-8199-6587f6c4e6e6)    
+The t-test comparing fan ratings for races held in Azerbaijan vs. Turkey reveals a statistically significant difference (t = 3.135, p = 0.0469). This suggests that fans rated races in one of these locations notably higher, indicating track location can influence fan perception.
+
+
+
