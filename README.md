@@ -406,4 +406,4 @@ While the constructor had no noticeable impact on fan ratings, both the driver w
 The results show that:
 - **Winning Driver** and **Track Location** *do significantly impact* fan ratings.
 - **Winning Constructor** and **Seasonal Placement** *do not show significant effects*.
-Therefore, we **partially reject the null hypothesis** — some factors **do influence** race excitement as rated by fans.
+Therefore, we **partially reject the null hypothesis**, some factors **do influence** race excitement as rated by fans.
