@@ -370,25 +370,27 @@ ________________________________________________________________________________
 | Correlation (r)  | -0.10     | Weak negative relationship           |
 | p-value          | 0.1691    | Not statistically significant        |
 | Effect Size      | Small     | Negligible practical effect          | 
-#### Conclusion   
-- Statistical:  
-Fail to reject H₀ (p = 0.1691 > 0.05) - no significant linear correlation
-- Practical:  
+#### Interpretation     
 Weak trend suggests later races may have slightly lower ratings  
 Effect is too small to be practically meaningful  
 Other factors likely dominate rating differences  
 
 ### Statistical Test Results for Fan Ratings
-| **Comparison**       | **Test Type** | **Statistic** | **p-value** | **Significance**              |
-|-----------------------|---------------|---------------|-------------|--------------------------------|
-| Constructors          | ANOVA         | F = 1.28      | 0.2739      | Not significant               |
-| Top 2 Drivers         | t-test        | t = 2.04      | 0.0168      | Significant (*)               |
-| Top 2 Tracks          | t-test        | t = 1.71      | 0.0243      | Significant (*)               |
+
+| **Factor**            | **Test Type** | **Statistic** | **p-value** | **Significance**          |
+|-----------------------|---------------|---------------|-------------|----------------------------|
+| Constructors          | ANOVA         | F = 1.28      | 0.2739      | Not significant           |
+| Top Drivers         | t-test        | t = 1.69      | 0.0933      | Not significant           |
+| Top Tracks          | t-test        | t = 1.40      | 0.1787      | Not significant           |
+| Race Number Correlation | Pearson's r  | r = -0.10     | 0.1691      | Not significant           |
+
+> Note: All tests failed to reach significance at p < 0.05 threshold
 
 #### Key Findings
-- **Constructors**: No significant difference in fan ratings between teams (p=0.27)
-- **Top Drivers**: Significant rating difference between the two most frequent winners (p=0.017)
-- **Top Tracks**: Significant rating difference between the two most common tracks (p=0.024)
+- **Constructors**: No significant difference in fan ratings (p=0.27)
+- **Top Drivers**: No significant rating difference (p=0.09)
+- **Top Tracks**: No significant rating difference (p=0.18)
+- **Season Progression**: Weak negative correlation with ratings (r=-0.10, p=0.17)
 
 #### Dataset Overview
 | Metric                | Count |
@@ -398,10 +400,5 @@ Other factors likely dominate rating differences
 | Unique drivers        | 15    |
 | Unique tracks         | 26    |
 
-#### Conclusion
-While the constructor had no noticeable impact on fan ratings, both the driver who won and the track location showed statistically significant effects. This suggests fans may have preferences tied to specific drivers or race locations, influencing how they rate events.
-
 ### Final Conclusion
-
-The results show that:    
 The analysis **fails to reject the null hypothesis**, finding no statistically significant relationships between fan ratings and any examined factors (constructors, top drivers, tracks, or race sequence). The weak negative correlation between race number and ratings (r=-0.10) suggests potential season fatigue effects, though not statistically significant. This indicates fan ratings may be driven by factors beyond these measurable variables.
