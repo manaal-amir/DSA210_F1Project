@@ -378,32 +378,30 @@ Weak trend suggests later races may have slightly lower ratings
 Effect is too small to be practically meaningful  
 Other factors likely dominate rating differences  
 
-### One-Way ANOVA Results for Fan Ratings
-| **Factor**           | **F-value** | **p-value** | **Significance**                   |
-|----------------------|-------------|-------------|------------------------------------|
-| Winning Constructor  | 1.28        | 0.2739      | Not statistically significant      |
-| Winning Driver       | 2.04        | 0.0168      | Significant difference             |
-| Track Location       | 1.71        | 0.0243      | Significant difference             |
+### Statistical Test Results for Fan Ratings
+| **Comparison**       | **Test Type** | **Statistic** | **p-value** | **Significance**              |
+|-----------------------|---------------|---------------|-------------|--------------------------------|
+| Constructors          | ANOVA         | F = 1.28      | 0.2739      | Not significant               |
+| Top 2 Drivers         | t-test        | t = 2.04      | 0.0168      | Significant (*)               |
+| Top 2 Tracks          | t-test        | t = 1.71      | 0.0243      | Significant (*)               |
 
-> A p-value below 0.05 indicates a statistically significant difference between groups.
+#### Key Findings
+- **Constructors**: No significant difference in fan ratings between teams (p=0.27)
+- **Top Drivers**: Significant rating difference between the two most frequent winners (p=0.017)
+- **Top Tracks**: Significant rating difference between the two most common tracks (p=0.024)
 
-#### Interpretation
-- **Winning Constructor**: Fan ratings do not significantly differ based on the winning constructor.
-- **Winning Driver**: Fan ratings do significantly differ depending on which driver won.
-- **Track Location**: Fan ratings do significantly differ based on the track location.
-
-#### Additional Data Summary
-- **Total races analyzed**: 202  
-- **Unique constructors**: 6  
-- **Unique drivers**: 15  
-- **Unique tracks**: 26  
+#### Dataset Overview
+| Metric                | Count |
+|-----------------------|-------|
+| Total races analyzed  | 202   |
+| Unique constructors   | 6     |
+| Unique drivers        | 15    |
+| Unique tracks         | 26    |
 
 #### Conclusion
 While the constructor had no noticeable impact on fan ratings, both the driver who won and the track location showed statistically significant effects. This suggests fans may have preferences tied to specific drivers or race locations, influencing how they rate events.
 
 ### Final Conclusion
 
-The results show that:
-- **Winning Driver** and **Track Location** *do significantly impact* fan ratings.
-- **Winning Constructor** and **Seasonal Placement** *do not show significant effects*.
-Therefore, we **partially reject the null hypothesis**, some factors **do influence** race excitement as rated by fans.
+The results show that:    
+The analysis **fails to reject the null hypothesis**, finding no statistically significant relationships between fan ratings and any examined factors (constructors, top drivers, tracks, or race sequence). The weak negative correlation between race number and ratings (r=-0.10) suggests potential season fatigue effects, though not statistically significant. This indicates fan ratings may be driven by factors beyond these measurable variables.
