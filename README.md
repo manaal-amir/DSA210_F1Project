@@ -145,7 +145,7 @@ The analysis pipeline executed the following steps:
 
 4. **Statistical Testing**
    - Pearson correlation assessed seasonal timing effects (race number vs ratings)
-   - One-way ANOVAs evaluated:
+   - Multiple-way ANOVA evaluated:
      - Constructor-based rating differences
      - Driver-based rating differences  
      - Track-based rating differences
