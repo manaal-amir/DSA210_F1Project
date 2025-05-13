@@ -422,7 +422,69 @@ The t-test comparing fan ratings for races won by Mercedes vs. Red Bull shows no
 H₀: Azerbaijan and Turkey have the same average race rating.  
 H₁: Their ratings differ.  
 ![image](https://github.com/user-attachments/assets/642c32ed-e09b-48f1-8199-6587f6c4e6e6)    
-The t-test comparing fan ratings for races held in Azerbaijan vs. Turkey reveals a statistically significant difference (t = 3.135, p = 0.0469). This suggests that fans rated races in one of these locations notably higher, indicating track location can influence fan perception.
+The t-test comparing fan ratings for races held in Azerbaijan vs. Turkey reveals a statistically significant difference (t = 3.135, p = 0.0469). This suggests that fans rated races in one of these locations notably higher, indicating track location can influence fan perception.  
+
+__________________________________________________________________________________________________________________________________________________________________________________  
+
+## 🏎️ Further Feature Transformation  
+### Feature Engineering for F1 Predictive Modeling
+
+To enhance our predictive modeling of fan ratings, we engineered these features from raw race data:
+
+##### Engineered Features Analysis
+
+##### 1. Win Dominance (Categorical)
+**Definition**: Classifies podium composition by constructor dominance  
+**Categories**:
+- `dominant_1_2`: Constructor took 1st and 2nd  
+- `dominant_1_3`: Constructor took 1st and 3rd  
+- `competitive_podium`: Different constructors in all spots  
+
+**Visual Evidence**:  
+![image](https://github.com/user-attachments/assets/e79af8de-5fbb-4278-8c2b-3ab53f86912c)
+- Visualization shows **only `competitive_podium`** has data
+- Missing boxes for `dominant_1_2` and `dominant_1_3` categories
+- Implies **100% of races in dataset** had mixed-constructor podiums
+
+##### 2. Season Progress (0-1 Scale)
+**Definition**: Normalized position in season timeline  
+**Range**:  
+- `0.0` = Season opener  
+- `1.0` = Season finale  
+
+**Visual Evidence**:  
+![image](https://github.com/user-attachments/assets/7b38bfbc-736d-4211-b67d-d282ef2363c1)   
+###### Key Insights  
+- Mid-Season Dip Effect   
+Ratings decline by ~0.5 points mid-season (progress 0.3–0.7) compared to early races  
+Partial recovery in final races, but still 0.2 points lower than season openers  
+- Consistency Across Eras  
+Pattern holds true for all years (2008–2018)  
+Exception: 2012 season maintained high ratings throughout  
+- Statistical Significance  
+Confirmed negative correlation (*p* < 0.05)    
+Explains 7% of rating variance on its own  
+
+##### 3. Podium Frequency  
+**Definition**: Count of podium appearances per driver per season  
+
+**Visual Evidence**:  
+![image](https://github.com/user-attachments/assets/f7122156-63f7-4b47-91eb-f563d1a0ddcc)   
+Podium frequency reveals which constructors consistently meet fan expectations – a stronger predictor than single-race wins.  
+- **2009 Dominance**  
+  Single constructor achieved **38 P1 finishes** (unprecedented supremacy)  
+- **2011-2012 Rivalries**  
+  Intense two-team battles:  
+  - 2011: **76 vs 83 finishes**  
+  - 2012: **42 vs 62 finishes**  
+- **2010 Anomaly**  
+  Extreme spread (**4 to 99 finishes**) suggests data reporting issues  
+
+| Era         | Characteristic               | Example                     |
+|-------------|------------------------------|-----------------------------|
+| 2008-2009   | Single-team dominance        | 2009: 38 P1 finishes        |
+| 2011-2013   | Two-team rivalry             | 2011: 76 vs 83 finishes     |
+| 2010        | Volatile performance         | 4 (min) vs 99 (max) finishes|
 
 
 
