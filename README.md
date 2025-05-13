@@ -472,19 +472,19 @@ Explains 7% of rating variance on its own
 ![image](https://github.com/user-attachments/assets/f7122156-63f7-4b47-91eb-f563d1a0ddcc)   
 Podium frequency reveals which constructors consistently meet fan expectations – a stronger predictor than single-race wins.  
 - **2009 Dominance**  
-  Single constructor achieved **38 P1 finishes** (unprecedented supremacy)  
+  Single constructor achieved **3.8 P1 finishes** (unprecedented supremacy)  
 - **2011-2012 Rivalries**  
   Intense two-team battles:  
-  - 2011: **76 vs 83 finishes**  
-  - 2012: **42 vs 62 finishes**  
+  - 2011: **7.6 vs 8.3 finishes**  
+  - 2012: **4.2 vs 6.2 finishes**  
 - **2010 Anomaly**  
-  Extreme spread (**4 to 99 finishes**) suggests data reporting issues  
+  Extreme spread (**.4 to 9.9 finishes**) suggests data reporting issues  
 
 | Era         | Characteristic               | Example                     |
 |-------------|------------------------------|-----------------------------|
-| 2008-2009   | Single-team dominance        | 2009: 38 P1 finishes        |
-| 2011-2013   | Two-team rivalry             | 2011: 76 vs 83 finishes     |
-| 2010        | Volatile performance         | 4 (min) vs 99 (max) finishes|
+| 2008-2009   | Single-team dominance        | 2009: 3.8 P1 finishes        |
+| 2011-2013   | Two-team rivalry             | 2011: 7.6 vs 8.3 finishes     |
+| 2010        | Volatile performance         | .4 (min) vs 9.9 (max) finishes|
 
 
 
