@@ -6,6 +6,7 @@
 __________________________________________________________________________________________________________________________________________________________________________________
 # Formula 1 Fan Ratings Analysis 
 ### Content  
+##### Deadline1:  
 Project Overview  
 Research Questions and Objectives  
 Motivation  
@@ -14,9 +15,11 @@ Hypothesis
 Dataset Analysis Plan  
 Tools and Technologies   
 Expected Outcomes  
+##### Deadline2:  
 Procedure to deduce Findings   
 Analysis of Findings  
-Hypothesis Tests Results   
+Hypothesis Tests Results 
+##### Deadline3:  
 Further Feature Transformation    
 __________________________________________________________________________________________________________________________________________________________________________________  
 
