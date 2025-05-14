@@ -20,7 +20,8 @@ Procedure to deduce Findings
 Analysis of Findings  
 Hypothesis Tests Results 
 ##### Deadline3:  
-Further Feature Transformation    
+Further Feature Transformation  
+Regression Analysis  
 __________________________________________________________________________________________________________________________________________________________________________________  
 
 ## 🏎️ Project Overview 
@@ -486,5 +487,7 @@ Podium frequency reveals which constructors consistently meet fan expectations �
 | 2011-2013   | Two-team rivalry             | 2011: 7.6 vs 8.3 finishes     |
 | 2010        | Volatile performance         | .4 (min) vs 9.9 (max) finishes|
 
+__________________________________________________________________________________________________________________________________________________________________________________  
 
+## 🏎️ Regression Analysis  
 
