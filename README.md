@@ -512,9 +512,40 @@ Retained the heatmap's value for identifying competitive seasons
 | **P1_season_total**|        1.000000 | -0.014696|
 | **RATING**         |       -0.014696 |  1.000000|  
 
-![image](https://github.com/user-attachments/assets/2b0a628a-6524-483f-8df4-b97db1a2d520)
+![image](https://github.com/user-attachments/assets/2b0a628a-6524-483f-8df4-b97db1a2d520)  
 
+##### 4. Driver Impact Features
+##### Hypothesis  
+We hypothesized that two driver-related factors would positively influence race ratings:  
+1. **Star Power Effect**: Races with more popular drivers (e.g., Hamilton, Vettel) on the podium would receive higher ratings  
+2. **Rivalry Boost**: Races featuring known driver rivalries (e.g., Hamilton vs. Rosberg) would show increased engagement
 
+##### Analysis  
+Calculated Pearson correlations with race ratings  
+Visualized distributions using boxplots and regressions  
+##### Results
+|Feature|	Correlation (r)|	Direction	Significance|
+|-------|----------------|------------------------|
+|Podium Star Power	|-0.083	|Negative|	Not significant|
+|Rivalry Presence	|-0.173|	Negative|	Mild effect|  
+
+##### Key Findings  
+Contrary to Expectations:  
+Rivalry races had lower ratings (r = -0.17)  
+Star power showed no meaningful relationship (r = -0.08)  
+Potential Explanations:  
+Controversial rivalry incidents (crashes/team orders) may reduce enjoyment  
+Casual fans might prefer underdog wins over predictable star dominance  
+Data Limitations:  
+Analysis limited to 2008-2018 seasons  
+Star weights based on retrospective popularity  
+
+##### Conclusion  
+Our hypothesis was not supported - neither star power nor rivalries improved ratings in this dataset. This suggests:  
+Fans may value clean racing over dramatic rivalries  
+Other factors (overtakes, championship stakes) likely dominate rating decisions  
+
+![image](https://github.com/user-attachments/assets/ebc31848-3a40-4ac0-b6a1-e9e6416b03a9)  
 __________________________________________________________________________________________________________________________________________________________________________________  
 
 ## 🏎️ Regression Analysis  
