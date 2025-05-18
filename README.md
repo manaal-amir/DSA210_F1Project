@@ -447,6 +447,10 @@ To enhance our predictive modeling of fan ratings, we engineered these features 
 - Missing boxes for `dominant_1_2` and `dominant_1_3` categories
 - Implies **100% of races in dataset** had mixed-constructor podiums
 
+###### Why This Feature is Not Useful for Analysis:  
+No Predictive Power: If all races belong to the same category, the feature cannot explain differences in fan ratings.  
+No Statistical Significance: A feature with zero variance cannot be used in statistical tests (e.g., ANOVA) or modeling.  
+
 ##### 2. Season Progress (0-1 Scale)
 **Definition**: Normalized position in season timeline  
 **Range**:  
@@ -456,15 +460,19 @@ To enhance our predictive modeling of fan ratings, we engineered these features 
 **Visual Evidence**:  
 ![image](https://github.com/user-attachments/assets/7b38bfbc-736d-4211-b67d-d282ef2363c1)   
 ###### Key Insights  
-- Mid-Season Dip Effect   
-Ratings decline by ~0.5 points mid-season (progress 0.3–0.7) compared to early races  
-Partial recovery in final races, but still 0.2 points lower than season openers  
-- Consistency Across Eras  
-Pattern holds true for all years (2008–2018)  
-Exception: 2012 season maintained high ratings throughout  
-- Statistical Significance  
-Confirmed negative correlation (*p* < 0.05)    
-Explains 7% of rating variance on its own  
+- Possible Slight Positive Trend
+The trend line suggests that ratings may improve as the season progresses, though the effect appears modest.  
+This could align with the hypothesis that late-season races (with championship implications) are rated more highly.  
+- High Variability  
+Ratings are scattered widely at all stages of the season, indicating that season_progress alone is not a strong predictor.  
+Other factors (e.g., race location, on-track action, or constructor battles) likely dominate fan perceptions.  
+- Yearly Differences  
+Certain years (e.g., 2012, known for close competition) show clusters of higher ratings, while others (e.g., 2014, Mercedes dominance era) may have lower averages.
+This suggests interaction effects—season progress might matter more in competitive seasons.
+
+##### Statistical Implications  
+If the trend line’s slope is statistically significant (p-value < 0.05), it would support the idea that fans reward late-season drama.  
+If the 95% CI band is wide (as it appears here), the relationship is uncertain, and other features should be investigated.  
 
 ##### 3. Podium Frequency  
 **Definition**: Count of podium appearances per driver per season  
@@ -485,7 +493,27 @@ Podium frequency reveals which constructors consistently meet fan expectations �
 |-------------|------------------------------|-----------------------------|
 | 2008-2009   | Single-team dominance        | 2009: 3.8 P1 finishes        |
 | 2011-2013   | Two-team rivalry             | 2011: 7.6 vs 8.3 finishes     |
-| 2010        | Volatile performance         | .4 (min) vs 9.9 (max) finishes|
+| 2010        | Volatile performance         | .4 (min) vs 9.9 (max) finishes|  
+
+##### Enhanced Heatmap Methodology  
+I expanded the original dominance visualization (showing "which teams won when") into an analytical tool by:
+- Restructuring the data using a merge-compatible pivot table  
+- Adding correlation testing between P1 frequency and ratings  
+- Validating visual patterns with statistical analysis  
+
+##### Key Insights Unlocked  
+- While the original heatmap revealed dominance eras (e.g., 178 P1s in 2013), the enhanced version proved these patterns don't predict ratings:  
+The -0.015 correlation confirmed no preference for underdogs or dominant teams  
+This pivoted our focus to race-specific factors like overtakes or track layout  
+Retained the heatmap's value for identifying competitive seasons  
+##### Correlation Analysis Results
+| Feature            | P1_season_total | RATING   |
+|--------------------|----------------:|---------:|
+| **P1_season_total**|        1.000000 | -0.014696|
+| **RATING**         |       -0.014696 |  1.000000|  
+
+![image](https://github.com/user-attachments/assets/2b0a628a-6524-483f-8df4-b97db1a2d520)
+
 
 __________________________________________________________________________________________________________________________________________________________________________________  
 
