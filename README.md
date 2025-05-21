@@ -21,7 +21,7 @@ Analysis of Findings
 Hypothesis Tests Results 
 ##### Deadline3:  
 Further Feature Transformation  
-Regression Analysis  
+Linear Regression Analysis  
 __________________________________________________________________________________________________________________________________________________________________________________  
 
 ## 🏎️ Project Overview 
@@ -432,9 +432,9 @@ ________________________________________________________________________________
 
 To enhance our predictive modeling of fan ratings, we engineered these features from raw race data:
 
-##### Engineered Features Analysis
+#### Engineered Features Analysis
 
-##### 1. Win Dominance (Categorical)
+#### 1. Win Dominance (Categorical)
 **Definition**: Classifies podium composition by constructor dominance  
 **Categories**:
 - `dominant_1_2`: Constructor took 1st and 2nd  
@@ -447,11 +447,11 @@ To enhance our predictive modeling of fan ratings, we engineered these features 
 - Missing boxes for `dominant_1_2` and `dominant_1_3` categories
 - Implies **100% of races in dataset** had mixed-constructor podiums
 
-###### Why This Feature is Not Useful for Analysis:  
+##### Why This Feature is Not Useful for Analysis:  
 No Predictive Power: If all races belong to the same category, the feature cannot explain differences in fan ratings.  
 No Statistical Significance: A feature with zero variance cannot be used in statistical tests (e.g., ANOVA) or modeling.  
 
-##### 2. Season Progress (0-1 Scale)
+#### 2. Season Progress (0-1 Scale)
 **Definition**: Normalized position in season timeline  
 **Range**:  
 - `0.0` = Season opener  
@@ -474,47 +474,30 @@ This suggests interaction effects—season progress might matter more in competi
 If the trend line’s slope is statistically significant (p-value < 0.05), it would support the idea that fans reward late-season drama.  
 If the 95% CI band is wide (as it appears here), the relationship is uncertain, and other features should be investigated.  
 
-##### 3. Podium Frequency  
+#### 3. Podium Frequency  
 **Definition**: Count of podium appearances per driver per season  
 
 **Visual Evidence**:  
-![image](https://github.com/user-attachments/assets/f7122156-63f7-4b47-91eb-f563d1a0ddcc)   
-Podium frequency reveals which constructors consistently meet fan expectations – a stronger predictor than single-race wins.  
-- **2009 Dominance**  
-  Single constructor achieved **3.8 P1 finishes** (unprecedented supremacy)  
-- **2011-2012 Rivalries**  
-  Intense two-team battles:  
-  - 2011: **7.6 vs 8.3 finishes**  
-  - 2012: **4.2 vs 6.2 finishes**  
-- **2010 Anomaly**  
-  Extreme spread (**.4 to 9.9 finishes**) suggests data reporting issues  
-
-| Era         | Characteristic               | Example                     |
-|-------------|------------------------------|-----------------------------|
-| 2008-2009   | Single-team dominance        | 2009: 3.8 P1 finishes        |
-| 2011-2013   | Two-team rivalry             | 2011: 7.6 vs 8.3 finishes     |
-| 2010        | Volatile performance         | .4 (min) vs 9.9 (max) finishes|  
-
-##### Enhanced Heatmap Methodology  
-I expanded the original dominance visualization (showing "which teams won when") into an analytical tool by:
-- Restructuring the data using a merge-compatible pivot table  
-- Adding correlation testing between P1 frequency and ratings  
-- Validating visual patterns with statistical analysis  
-
-##### Key Insights Unlocked  
-- While the original heatmap revealed dominance eras (e.g., 178 P1s in 2013), the enhanced version proved these patterns don't predict ratings:  
-The -0.015 correlation confirmed no preference for underdogs or dominant teams  
-This pivoted our focus to race-specific factors like overtakes or track layout  
-Retained the heatmap's value for identifying competitive seasons  
-##### Correlation Analysis Results
+![image](https://github.com/user-attachments/assets/20ed54d9-e6fe-4033-b796-274836ec7c40)  
+##### Purpose  
+We analyzed whether a constructor's winning frequency (P1 finishes) affects race ratings, testing if fans prefer dominant teams or underdogs.  
+##### Heatmap Insights  
+The visualization showed clear dominance patterns - some seasons had one dominant team (e.g., 178 P1s in 2013), while others were more competitive. 
+##### Key Finding  
+The near-zero correlation (-0.015) revealed no link between a team's season-long winning frequency and race ratings. This means:  
+- Fans don't consistently rate races higher when underdogs win    
+- Dominant teams don't automatically get better/worse ratings  
+- Race-specific factors likely matter more than season-long trends  
+##### Impact  
+This disproved our initial hypothesis and shifted focus to other rating drivers like race action or track characteristics. The heatmap remains valuable for identifying competitive vs. dominant eras in future studies.   
+##### Correlation Analysis Results  
 | Feature            | P1_season_total | RATING   |
 |--------------------|----------------:|---------:|
 | **P1_season_total**|        1.000000 | -0.014696|
 | **RATING**         |       -0.014696 |  1.000000|  
 
-![image](https://github.com/user-attachments/assets/2b0a628a-6524-483f-8df4-b97db1a2d520)  
 
-##### 4. Driver Impact Features
+#### 4. Driver Impact Features
 ##### Hypothesis  
 We hypothesized that two driver-related factors would positively influence race ratings:  
 1. **Star Power Effect**: Races with more popular drivers (e.g., Hamilton, Vettel) on the podium would receive higher ratings  
@@ -548,5 +531,175 @@ Other factors (overtakes, championship stakes) likely dominate rating decisions
 ![image](https://github.com/user-attachments/assets/ebc31848-3a40-4ac0-b6a1-e9e6416b03a9)  
 __________________________________________________________________________________________________________________________________________________________________________________  
 
-## 🏎️ Regression Analysis  
+## 🏎️ Linear Regression Analysis   
+An OLS regression was conducted to predict the fan ratings (RATING) of Formula 1 races using present features.  
+The model’s main goal was to understand:  
+“Which features (drivers, teams, race conditions) influence fan ratings the most?”  
+It also serves as a baseline to compare with more complex models like Random Forest and XGBoost. 
+
+#### Some insights:  
+These numbers represent the expected change in rating if a feature is present (1) vs not (0):  
+|Feature|	Coefficient	|Interpretation|
+|-------|-------------|----------------|
+|constructor_Red Bull|	+1.37|	Races won by Red Bull tend to get +1.37 higher rating.|
+|P1_Ricciardo	|+1.92|	When Ricciardo wins, the race is rated +1.92 higher on average.|
+|P1_Hamilton|	+0.58|	Hamilton wins are positively viewed, but less than Ricciardo’s.|
+|P1_Vettel|	-0.22|	Slight negative effect when Vettel wins.|
+|season_phase_late|	+1.79|	Races in the late season are rated higher, maybe due to championship tension.|
+|P1_Bottas|	-1.35|	Races where Bottas wins tend to be rated lower.|
+|season_progress|	-0.98|	Slight decline in ratings as the season progresses (though not significant).|
+
+##### Following visual shows coefficients values for chosen features:  
+![image](https://github.com/user-attachments/assets/628345c2-4468-450c-a1bd-c4dfb6c5b3b3)
+
+#### Disadvantages:   
+- Low predictive power; R² values are weak (especially on test data).  
+- High multicollinearity; features overlap too much (e.g. driver names & constructors are tightly coupled).  
+- Some effects may be spurious; coefficients are sensitive to collinearity.  
+Linear model is too simple: doesn’t capture nonlinear relationships or interactions well.
+
+As part of the pipeline, a visual for the actual was predicted rating was coded. The goal is to predict ratings (likely driver ratings, race ratings, or performance scores) and evaluate how well our model did on unseen data.  
+![image](https://github.com/user-attachments/assets/807c344f-eeb5-4225-a9a5-2c212cbbdeac)
+
+#### Interpretation:   
+MAE 0.52 → On average, predictions are 0.52 units off.  
+RMSE 0.65 → Slightly higher than MAE, indicating some larger errors.  
+R² = 0.72 → 72% of the variance in actual ratings is explained by the model.  
+
+#### Observations:  
+Spread Around the Line  
+- The points are not tightly clustered around the diagonal line.  
+- Most predicted values are centered around 7, even when actual ratings vary widely from ~4 to ~9.
+Underprediction for Higher Ratings  
+- For actual ratings > 8, the model often predicts lower than actual.
+Overprediction for Lower Ratings  
+- For actual ratings < 6, predicted values are still close to 7.
+Low variance in predictions (mostly centered around 7) implies the model isn’t sensitive enough to the real variation in the target variable.
+
+This plot shows the distribution of prediction errors, i.e., the differences between the actual fan ratings and the ratings predicted by the model.  
+I created this visualization to understand how often the model over- or under-predicts and whether these errors are balanced around zero. It helps identify whether the model has bias or large frequent errors.  
+A well-performing model will usually have a symmetric, bell-shaped histogram centered at 0. If it's skewed, or has long tails, that might mean our model isn't generalizing well for certain cases.  
+![image](https://github.com/user-attachments/assets/33d88b76-d4fb-4a9f-9421-ad688dc7165d)  
+Similarly, this plot helps to check whether the assumptions of linear regression are being met — especially homoscedasticity (equal spread of residuals) and whether there's any systematic pattern in prediction errors.  
+While this model doesn’t show major issues, the spread around predicted values ~7 suggests that the model might not perform equally well across all predicted ratings. It may benefit from additional tuning or more informative features.  
+![image](https://github.com/user-attachments/assets/a0b27d99-dae3-413a-a70e-8d70e131fc55)  
+
+__________________________________________________________________________________________________________________________________________________________________________________    
+
+## 🏎️ Random Forest  
+
+Since linear regression was not a good model fit for our data, we used Random Forest as our machine learning model where we:  
+Trained a RandomForestRegressor to predict fan RATING for each F1 race.  
+Used GridSearchCV to test multiple parameter combinations and find the best hyperparameters.  
+Used a pipeline to handle both numerical and categorical variables.  
+Calculated feature importances to understand what features influence the prediction most.  
+Ran cross-validation to get a reliable estimate of how well our model performs.  
+
+#### Interpretation:  
+max_depth=20: Trees can grow relatively deep, allowing the model to capture complex patterns.  
+max_features='log2': Each split in a tree considers only a subset of features, increasing diversity and reducing overfitting.  
+min_samples_leaf=1: Leaves can be formed even with 1 data point — gives flexibility, but could overfit if not handled carefully.  
+n_estimators=100: You're using 100 trees in the forest, balancing performance and computational cost.  
+- These are the settings that gave the lowest prediction error in cross-validation.
+
+The RMSE (Root Mean Squared Error) for each fold: 
+[1.54, 1.36, 1.15, 1.32, 1.23]  
+Mean RMSE = 1.32  
+The model predicts the RATING (fan rating of the race) with an average error of ±1.32.  
+Since F1 fan ratings are typically on a scale around 0 to 10, this is a reasonably accurate model.  
+The relatively low variation between folds suggests that the model is stable (not too sensitive to the training data split).  
+
+This plot shows which features (columns) the model relied on most to make predictions about fan RATING.  
+![image](https://github.com/user-attachments/assets/17a3d275-6dbf-4bad-abfc-b19a9a03afdf)  
+The model thinks race context matters a lot, such as when the race happened (race_number), in what year, and if it was a popular venue like European Grand Prix.  
+Who won (like Ricciardo) also matters, fans may rate races higher when popular drivers win.  
+This means both event metadata (time/place) and driver performance (like P1, P2, etc.) influence how fans feel.  
+
+__________________________________________________________________________________________________________________________________________________________________________________    
+
+## 🏎️ XGBoost  
+
+- Next, I ran a Grid Search with Cross-Validation using XGBoostRegressor to find the best combination of hyperparameters for predicting RATING (fan ratings) based on:   
+Numeric inputs: year, race_number  
+Categorical inputs: Grand PrixNAME, race_name, constructor_name, and top 3 finishers (P1, P2, P3)  
+- The hyperparameters you tested were:  
+learning_rate: how fast the model learns (0.05, 0.1)  
+max_depth: how complex each tree can get (3, 5, 10)    
+n_estimators: number of trees (100, 200)  
+subsample: percent of training samples used in each tree (0.8, 1.0)
+
+#### Method  
+GridSearchCV to test many combinations of those hyperparameters  
+5-fold cross-validation, meaning the data was split into 5 parts, and the model was trained on 4 and validated on the 5th (repeating this 5 times)  
+Scoring metric: RMSE (Root Mean Squared Error), which penalizes larger errors more heavily  
+
+#### Results:  
+The best parameters (based on lowest RMSE) were:
+{  
+  'model__learning_rate': 0.05,  
+  'model__max_depth': 3,  
+  'model__n_estimators': 100,  
+  'model__subsample': 0.8  
+}  
+These settings gave you a mean RMSE of ~1.33, with individual fold scores:  
+[1.560, 1.351, 1.151, 1.364, 1.244]  
+
+It means our model can predict fan race ratings with a typical error of about 1.33 points on a 10-point scale. That’s:  
+- Quite decent given limited features (no weather, no crash data, etc.)  
+- Suggests that race identity and podium drivers are meaningful in predicting ratings  
+- Likely better than using a default model or average value
+
+Following features contribut strongly to how the model predicts the fan rating of a Formula 1 race.  
+![image](https://github.com/user-attachments/assets/cc064778-3e42-40d4-8c05-3d50701b3b75)  
+1. P1_Alonso  
+Indicates whether Fernando Alonso finished 1st in the race.
+If this value is 1, Alonso won the race.  
+The model has learned that races won by Alonso tend to affect fan ratings significantly — maybe fans like his driving, or those races had drama or significance.
+
+2. P2_Massa  
+Indicates if Felipe Massa came 2nd in the race.
+Apparently, when Massa finishes 2nd, it has a strong relationship (positive or negative) with the race rating.  
+Could reflect the era's popularity, race competitiveness, or fan perception of his rivalries.
+
+3. constructor_name_Red Bull  
+Was Red Bull the constructor that won the race?
+Strongly predictive of ratings — maybe Red Bull races were seen as exciting or dominant.   
+The model sees patterns in races where Red Bull is involved in victories.
+
+4. Grand PrixNAME_European Grand Prix  
+This GP might historically have higher or lower ratings than others.
+Could be due to track excitement, drama, or location.
+
+5. constructor_name_Mercedes
+Mercedes races had patterns (positive or negative) that influenced the fan ratings.
+
+__________________________________________________________________________________________________________________________________________________________________________________    
+
+## 🏎️ XGBoost and Random Forest Comparison  
+
+| Aspect                     |  Random Forest                             |  XGBoost                                   |
+|---------------------------|---------------------------------------------|---------------------------------------------|
+|  **Best Parameters**     | `max_depth=20`  <br>`max_features='log2'`<br>`min_samples_leaf=1`<br>`n_estimators=100` | `learning_rate=0.05` <br>`max_depth=3`<br>`n_estimators=100`<br>`subsample=0.8` |
+|  **Cross-validated RMSE** | `[1.5439, 1.3581, 1.1486, 1.3242, 1.2307]` | `[1.5601, 1.3509, 1.1506, 1.3642, 1.2442]` |
+|  **Mean RMSE**           | **`1.3211`**                                | `1.3340`                                    |
+|  **Top Features**        | 1. `race_number` <br> 2. `year` <br> 3. `European Grand Prix` <br> 4. `P1_Ricciardo` <br> 5. `P1_Vettel` | 1. `P1_Alonso` <br> 2. `P2_Massa` <br> 3. `constructor_Red Bull` <br> 4. `European Grand Prix` <br> 5. `constructor_Mercedes` |
+|  **Feature Insights**    | Emphasizes race context and podium driver | Highlights specific drivers and teams more |
+|  **Model Type**          | Bagging (Ensemble of Decision Trees)       | Boosting (Gradient Boosted Trees)           |
+|  **Bias-Variance**       | Lower variance, slightly higher risk of overfitting | Lower bias, more controlled generalization |
+|  **Interpretability**    | Moderate (feature importance accessible)   | Moderate, slightly more complex             |
+|  **Winner (RMSE)**       |  **Lower RMSE**           | Slightly higher RMSE                      |
+
+
+
+#### Conclusion
+
+- Both models performed **similarly well**, with **Random Forest having a slight edge** in RMSE.  
+- **Random Forest** is a bit more interpretable and captured broader patterns like race order and year.  
+- **XGBoost** identified specific driver and constructor combinations (e.g., `P1_Alonso`, `Red Bull`) as highly predictive.  
+
+#### Summary  
+- The driver who finishes P1 (especially Ricciardo or Alonso) has the strongest influence on fan ratings.
+- Team and constructor identity also matters: Red Bull and Mercedes often appear in top importance scores.
+- Location and timing (like the European GP or late-season races) affect ratings, indicating that context matters, not just performance.  
+
 
