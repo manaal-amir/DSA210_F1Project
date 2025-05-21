@@ -412,6 +412,7 @@ The analysis **rejects the null hypothesis**. While winning constructor has no s
 H₀: The average race ratings are the same across different constructors.  
 H₁: At least one constructor has a different average race rating.  
 The ANOVA test shows that there is no statistically significant difference in average fan ratings across the six winning constructors (F = 1.280, p = 0.2739). This suggests that which constructor wins a race does not meaningfully impact how fans rate the event.  
+![image](https://github.com/user-attachments/assets/4a2bd7e5-a259-4863-a321-f7b206e55ae5)  
 
 #### Hypothesis 2: t-Test – Mercedes vs. Red Bull  
 H₀: The average race ratings for races won by Mercedes and Red Bull are the same.  
@@ -579,7 +580,7 @@ Low variance in predictions (mostly centered around 7) implies the model isn’t
 This plot shows the distribution of prediction errors, i.e., the differences between the actual fan ratings and the ratings predicted by the model.  
 I created this visualization to understand how often the model over- or under-predicts and whether these errors are balanced around zero. It helps identify whether the model has bias or large frequent errors.  
 A well-performing model will usually have a symmetric, bell-shaped histogram centered at 0. If it's skewed, or has long tails, that might mean our model isn't generalizing well for certain cases.  
-![image](https://github.com/user-attachments/assets/33d88b76-d4fb-4a9f-9421-ad688dc7165d)  
+![image](https://github.com/user-attachments/assets/d3c594ba-1958-467f-b200-1bea61a02b53)   
 Similarly, this plot helps to check whether the assumptions of linear regression are being met — especially homoscedasticity (equal spread of residuals) and whether there's any systematic pattern in prediction errors.  
 While this model doesn’t show major issues, the spread around predicted values ~7 suggests that the model might not perform equally well across all predicted ratings. It may benefit from additional tuning or more informative features.  
 ![image](https://github.com/user-attachments/assets/a0b27d99-dae3-413a-a70e-8d70e131fc55)  
