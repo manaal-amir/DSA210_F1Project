@@ -22,6 +22,9 @@ Hypothesis Tests Results
 ##### Deadline3:  
 Further Feature Transformation  
 Linear Regression Analysis  
+Random Forest  
+XG Boost  
+Comparison, Summary and Analysis  
 __________________________________________________________________________________________________________________________________________________________________________________  
 
 ## 🏎️ Project Overview 
